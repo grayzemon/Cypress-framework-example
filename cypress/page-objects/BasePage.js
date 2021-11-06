@@ -1,4 +1,4 @@
-import CypressUtils from './utils/CypressUtils';
+import CypressUtils from '../utils/CypressUtils';
 
 export default class BasePage extends CypressUtils {
 

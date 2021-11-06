@@ -35,15 +35,6 @@ Cypress.Commands.add('setResolution', size => {
     }
 });
 
-//DELETE ME WHEN TESTED
-Cypress.Commands.add('login', (username,password) => {
-    cy.get('#login_form').should('be.visible');
-    cy.get('#user_login').type(username);
-    cy.get('#user_password').type(password);
-    cy.get('#user_remember_me').click();
-    cy.contains('Sign in').click();
-});
-
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false;
 });
