@@ -1,6 +1,6 @@
 import FeedBackPage from '../../page-objects/pages/FeedbackPage'
 
-describe('Feedback Test using Fixtures', () => {
+describe('Feedback scenario with fixtures', () => {
     before(() => {
         FeedBackPage.load();
     });

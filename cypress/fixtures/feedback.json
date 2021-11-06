@@ -2,5 +2,7 @@
     "name": "Your name",
     "email": "your.email@email.com",
     "subject": "your subject goes here",
-    "message": "Hello message test. The quick brown fox jumps over the lazy fence."
+    "message": "Hello message test. The quick brown fox jumps over the lazy fence.",
+    "id": "username",
+    "pwd": "password"
 }

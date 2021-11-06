@@ -1,38 +1,26 @@
-import {url,login_username,login_password} from '../../../config';
-import NavBar from '../../page-objects/components/Navbar';
 import LoginPage from '../../page-objects/pages/LoginPage';
+import HomePage from '../../page-objects/pages/HomePage';
 
-describe('Login Failed Test', () => {
+describe('Login and forgot password scenarios', () => {
 
-    before(() => {
-        cy.visit(url);
-        NavBar.clickSignIn();
+    beforeEach(() => {
+        HomePage.gotoHomePage();
+        HomePage.clickSignIn();
     });
 
-    it('should try to login with invalid credentials', () => {
-        LoginPage.login('invalid username', 'invalid password');
-    });
-
-    it('should display error message', () => {
+    it('should check error message for invalid credentials', () => {
+        LoginPage.login('badUsername', 'badPassword');
         LoginPage.displayErrorMessage();
     });
 
-});
-
-describe('Login Success Test', () => {
-
-    before(() => {
-        cy.visit(url);
-        NavBar.clickSignIn();
+    it('should login and out of application', () => {
+        LoginPage.validLogin();
+        HomePage.logout();
+        HomePage.displaySignInButton();
     });
 
-    it('should login into application', () => {
-        LoginPage.login(login_username,login_password);
+    it('Should reset the password', () => {
+        LoginPage.passwordReset('test@test.com');
     });
 
-    it('should logout from application', () => {
-        NavBar.logout();
-        NavBar.displaySignInButton();
-    });
-    
 });

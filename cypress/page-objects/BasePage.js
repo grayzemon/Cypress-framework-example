@@ -1,27 +1,56 @@
-export default class BasePage {
+import CypressUtils from './utils/CypressUtils';
 
-    static pause(ms) {
-        cy.wait(ms);
+export default class BasePage extends CypressUtils {
+
+    static BaseURL = 'http://zero.webappsecurity.com/'
+
+    static clickSummary() {
+        cy.get('#account_summary_tab').click();
     }
 
-    static logInfo(message) {
-        cy.log(message);
+    static clickActivity() {
+        cy.get('#account_activity_tab').click();
     }
 
-    static setMobileViewPort() {
-        cy.viewport('iphone-x');
+    static clickTransferFunds() {
+        cy.get('#transfer_funds_tab').click();
     }
 
-    static setTabletViewPort() {
-        cy.viewport('ipad-2');
+    static clickPayBills() {
+        cy.get('#pay_bills_tab').click();
     }
 
-    static setDesktopViewPort() {
-        cy.viewport('macbook-13');
+    static clickMoneyApp() {
+        cy.get('#money_map_tab').click();
     }
 
-    static setLargeDesktopViewPort() {
-        cy.viewport(1980,1080);
+    static clickOnlineStatement() {
+        cy.get('#online_statements_tab').click();
+    }
+
+    static clickOnLogo() {
+        cy.get('.brand').click();
+    }
+
+    static search(text) {
+        cy.get('#searchTerm').type(`${text} {enter}`);
+    }
+
+    static clickSignIn() {
+        cy.get('#signin_button').click();
+    }
+
+    static clickSettings() {
+       cy.contains('Settings').click(); 
+    }
+
+    static logout() {
+        cy.contains('username').click();
+        cy.get('#logout_link').click();
+    }
+
+    static displaySignInButton() {
+        BasePage.isVisible('#signin_button')
     }
     
 }

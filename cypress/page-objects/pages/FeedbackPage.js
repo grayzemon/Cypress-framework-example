@@ -1,4 +1,4 @@
-import BasePage from "../pages/../BasePage";
+import BasePage from "../BasePage";
 
 export default class FeedbackPage extends BasePage {
 
