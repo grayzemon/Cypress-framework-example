@@ -4,3 +4,4 @@ package-lock.json
 /cypress/downloads
 /cypress/screenshots
 /cypress/reports
+/cypress/logs
