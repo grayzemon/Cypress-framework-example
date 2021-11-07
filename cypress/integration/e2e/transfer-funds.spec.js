@@ -1,7 +1,7 @@
 import LoginPage from '../../page-objects/pages/LoginPage';
 import Transferfunds from '../../page-objects/pages/TransferFunds';
 
-describe('Account Activity scenario', () => {
+describe('Transfer money and make payments', () => {
 
     beforeEach(() => {
         LoginPage.gotoLoginPage();
@@ -14,6 +14,7 @@ describe('Account Activity scenario', () => {
 
     it('should find account activity', () => {
         Transferfunds.transferMoneyAndMakePayments();
+        cy.screenshot();  
     });
 
 });

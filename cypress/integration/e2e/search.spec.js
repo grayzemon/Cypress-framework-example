@@ -7,7 +7,8 @@ describe('Homepage search scenario', () => {
     })
 
     it('Should type into searchbox and submit by pressing enter', () => {
-        HomePage.search('payments');    
+        HomePage.search('payments'); 
+        cy.screenshot();   
     });
 
 })

@@ -2,3 +2,5 @@
 package-lock.json
 /cypress/videos
 /cypress/downloads
+/cypress/screenshots
+/cypress/reports

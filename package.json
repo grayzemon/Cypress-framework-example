@@ -4,11 +4,18 @@
   "description": "Automation Framework with Cypress",
   "main": "index.js",
   "scripts": {
-    "cy:open": "cypress open",
-    "cy:run": "cypress run --browser chrome",
-    "cy:run-firefox": "cypress run --browser firefox",
-    "cy:run-electron": "cypress run --browser electron",
-    "cy:update-snapshots":"cypress run --env updateSnapshots=true --browser chrome"
+    "cypress": "cypress open",
+    "chrome": "cypress run --browser chrome",
+    "firefox": "cypress run --browser firefox",
+    "electron": "cypress run --browser electron",
+    "update-snapshots": "cypress run --env updateSnapshots=true --browser chrome",
+    "setup:reports": "mkdir cypress\\reports && mkdir cypress\\reports\\mochareports",
+    "clean:reports": "del /S /Q cypress\\reports",
+    "pretest": "npm run clean:reports",
+    "combine-reports": "mochawesome-merge cypress/reports/mocha/*.json > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttest": "npm run combine-reports && npm run generate-report",
+    "tests" : "npm run pretest && npm run chrome && npm run posttest"
   },
   "keywords": [
     "Automation",
@@ -20,6 +27,10 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^8.6.0",
-    "cypress-image-snapshot": "^4.0.1"
+    "cypress-image-snapshot": "^4.0.1",
+    "cypress-multi-reporters": "^1.5.0",
+    "mochawesome": "^7.0.1",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^6.0.1"
   }
 }

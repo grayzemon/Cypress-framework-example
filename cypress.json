@@ -11,5 +11,19 @@
   "requestTimeout": 15000,
   "responseTimeout": 15000,
   "video": false,
-  "failOnStatusCode": false
+  "failOnStatusCode": false,
+  "ScreenshotsFolder": "cypress/screenshots",
+  "screenshotOnRunFailure": false,
+  "trashAssetsBeforeRuns": true,
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+      "reporterEnabled": "mochawesome",
+      "mochawesomeReporterOptions": {
+          "reportDir": "cypress/reports/mocha",
+          "quiet": false,
+          "overwrite": false,
+          "html": false,
+          "json": true
+      }
+  }
 }

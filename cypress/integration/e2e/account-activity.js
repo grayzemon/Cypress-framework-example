@@ -14,10 +14,12 @@ describe('Account Activity scenarios', () => {
 
     it('should find account activity', () => {
         AccountActivity.findTransactions();
+        cy.screenshot();  
     });
 
     it('should show account activity', () => {
         AccountActivity.showTransactions();
+        cy.screenshot();  
     });
 
 });
